@@ -5,3 +5,4 @@ function greet(name, hi = "안녕하세요"){
 
 console.log(greet("철수", "반갑습니다"));
 console.log(greet("훈이"));
+ 
