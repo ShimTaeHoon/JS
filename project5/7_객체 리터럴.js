@@ -15,3 +15,4 @@ var property = "grade";
 person[property] = "A"; // person["grade"] = "A"와 같다
 
 console.log(person);
+console.log(person[property]);
