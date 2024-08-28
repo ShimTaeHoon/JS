@@ -3,7 +3,7 @@
 // 결과: ["2024-08-27", "2024", "08", "27"]
 
 let date = "2024-08-27";
-let patt = /^\d{4}-\d{2}-\d{2}$/;
+let patt = /^(\d{4})-(\d{2})-(\d{2})$/;
 
-let result = date.match(patt);
-console.log(result);
+let result = date.split("-");
+console.log(`[${date}, ${result}]`);
