@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .main {
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    .rightAlign {
+      margin-left: 40px;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    #textcheck {
+      width: 500px;
+      height: 100px;
+      resize: none;
+    }
+
+    .border-red {
+      border: 5px solid red;
+    }
+
+    .text-red {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <h1>프런트앤드 개발자 지원서</h1>
+    HTML, CSS, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.
+  </div>
+  <hr>
+  <div class="main">
+      <p class="bold">개인정보</p>
+      <p class="rightAlign">이름<input type="text"></p>
+      <p class="rightAlign">연락처<input type="text" id="text1" oninput="contacts()"></p>
+
+      <p class="bold">지원분야</p>
+      <p class="rightAlign"><input type="radio">웹 퍼블리싱</p>
+      <p class="rightAlign"><input type="radio">웹 애플리케이션 개발</p>
+      <p class="rightAlign"><input type="radio">개발 환경 개선</p>
+
+      <p class="bold">지원동기</p>
+      <textarea class="textarea" id="textcheck" oninput="textCheck();"></textarea>
+      <div class="text-count" id="text-count">
+        <span id="textModify">0</span>
+        <span>/30글자</span>
+      </div>
+      <br />
+      <br />
+      <button>접수하기</button>
+      <button>다시쓰기</button>
+  </div>
+
+  <script>
+    function contacts() {
+      let text = document.getElementById("text1");
+      let textValue = text.value;
+
+      if (isNaN(textValue)) {
+        text.className = "border-red";
+      } else {
+        text.className = "";
+      }
+    }
+
+    function textCheck() {
+      let text = document.getElementById("textcheck");
+      let textL = text.value.length;
+      console.log(textL);
+
+      let textLength = document.getElementById('textModify')
+      textLength.innerHTML = textL;
+
+      if (textL > 30) {
+        text.className = "text-red";
+      } else {
+        text.className = "";
+      }
+    }
+
+  </script>
+</body>
+
+</html>
