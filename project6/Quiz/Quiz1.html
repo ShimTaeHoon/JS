@@ -42,25 +42,25 @@
   </div>
   <hr>
   <div class="main">
-      <p class="bold">개인정보</p>
-      <p class="rightAlign">이름<input type="text"></p>
-      <p class="rightAlign">연락처<input type="text" id="text1" oninput="contacts()"></p>
+    <p class="bold">개인정보</p>
+    <p class="rightAlign">이름<input type="text" id="name"></p>
+    <p class="rightAlign">연락처<input type="text" id="text1" oninput="contacts()"></p>
 
-      <p class="bold">지원분야</p>
-      <p class="rightAlign"><input type="radio">웹 퍼블리싱</p>
-      <p class="rightAlign"><input type="radio">웹 애플리케이션 개발</p>
-      <p class="rightAlign"><input type="radio">개발 환경 개선</p>
+    <p class="bold">지원분야</p>
+    <p class="rightAlign"><input type="radio" id="apply1" name="oneCheck">웹 퍼블리싱</p>
+    <p class="rightAlign"><input type="radio" id="apply2" name="oneCheck">웹 애플리케이션 개발</p>
+    <p class="rightAlign"><input type="radio" id="apply3" name="oneCheck">개발 환경 개선</p>
 
-      <p class="bold">지원동기</p>
-      <textarea class="textarea" id="textcheck" oninput="textCheck();"></textarea>
-      <div class="text-count" id="text-count">
-        <span id="textModify">0</span>
-        <span>/30글자</span>
-      </div>
-      <br />
-      <br />
-      <button>접수하기</button>
-      <button>다시쓰기</button>
+    <p class="bold">지원동기</p>
+    <textarea class="textarea" id="textcheck" oninput="textCheck();"></textarea>
+    <div class="text-count" id="text-count">
+      <span id="textModify">0</span>
+      <span>/30글자</span>
+    </div>
+    <br />
+    <br />
+    <button onclick="formCheck();">접수하기</button>
+    <button>다시쓰기</button>
   </div>
 
   <script>
@@ -90,7 +90,36 @@
       }
     }
 
+    function formCheck() {
+      let name = document.getElementById("name").value;
+      // console.log(name);
+      let contacts = document.getElementById("text1").value;
+      let getApp1 = document.getElementById("apply1").checked;
+      let getApp2 = document.getElementById("apply2").checked;
+      let getApp3 = document.getElementById("apply3").checked;
+
+      let alertMessage = "";
+
+      if (name == "") {
+        alertMessage += "이름을 입력해주세요. \n";
+      }
+
+      if (contacts == "") {
+        alertMessage += "연락처를 입력해주세요. \n";
+      }
+
+      if (!getApp1 && !getApp2 && !getApp3) {
+        alertMessage += "지원분야를 선택해주세요.";
+      }
+
+      if (alertMessage != "") {
+        alert(alertMessage);
+      } else {
+        alert("접수가 완료되었습니다.(뻥임)");
+      }
+
+    };
+
   </script>
 </body>
-
 </html>
