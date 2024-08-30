@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .input-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main {
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    .border-red {
+      border: 5px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <h1>온라인 쇼핑 장바구니</h1>
+    <div class="input-box">
+      <p>상품이름: <input type="text" id="productname"></p>
+      <p>수량: <input type="number" id="quantity" oninput="quantityCheck()"></p>
+      <p>가격: <input type="number" id="price" oninput="priceCheck()"></p>
+    </div>
+    <div>
+      <button id="addCart">장바구니에 추가</button>
+      <br />
+      <h1>장바구니</h1>
+    </div>
+    <div id="cart">
+
+    </div>
+    <div id="myDiv">
+      <p id="total-quantity">총 수량: 0</p>
+      <p id="total-price">총 가격: 0원</p>
+    </div>
+  </div>
+
+  <script>
+    let cart = [];
+
+    document.getElementById('addCart').addEventListener('click', function () {
+      if (!formCheck()) {
+        return;
+      }
+
+      let productName = document.getElementById('productname').value;
+      let quantity = parseInt(document.getElementById('quantity').value);
+      let price = parseFloat(document.getElementById('price').value);
+
+      let myDiv = document.getElementById('myDiv');
+      let htmlStr = `${productName} - ${quantity}개 ${quantity * price}원 <button onclick="removeBtn()">제거</button>`;
+
+      // myDiv.insertAdjacentHTML("afterbegin", htmlStr);
+
+      let product = {
+        name: productName,
+        quantity: quantity,
+        price: price,
+        total: quantity * price,
+      };
+
+      cart.push(product);
+      updateCart();
+
+    });
+
+    function removeBtn() {
+      let removeHtml = document.getElementById("removeBtn");
+
+      removeHtml.remove();
+    }
+
+    function updateCart() {
+      let cartLoad = document.getElementById('cart');
+      cartLoad.innerHTML = '';
+
+      let totalQuantity = 0;
+      let totalPrice = 0;
+
+      for (let i = 0; i < cart.length; i++) {
+        let item = cart[i];
+        let itemLoad = document.createElement('div');
+        itemLoad.className = 'cartLoad';
+        itemLoad.innerHTML = `${item.name} - ${item.quantity} 개 ${item.total} 원
+          <button onclick="removeBtn(${i})">제거</button>`;
+        cartLoad.appendChild(itemLoad);
+
+        totalQuantity += item.quantity;
+        totalPrice += item.total;
+      }
+
+      document.getElementById('total-quantity').innerText = '총 수량: ' + totalQuantity;
+      document.getElementById('total-price').innerText = '총 가격: ' + totalPrice + '원';
+
+    };
+
+    function formCheck() {
+      let productname = document.getElementById("productname").value;
+      let quantity = document.getElementById("quantity").value;
+      let price = document.getElementById("price").value;
+
+      let alertMessage = "";
+
+      if (productname == "") {
+        alert("상품이름을 입력해주세요");
+      }
+      if (quantity == "") {
+        alert("유효한 수량을 입력해주세요");
+      }
+      if (price == "") {
+        alert("유효한 가격을 입력해주세요");
+      }
+
+      if (alertMessage !== "") {
+        alert(alertMessage);
+        return false;
+      }
+      return true;
+    }
+
+    function quantityCheck() {
+      let quantityInput = document.getElementById("quantity");
+      let quantity = parseFloat(quantityInput.value);
+      
+      if(isNaN(quantity)){
+        quantityInput.className = "border-red";
+        return false;
+      } else {
+        quantityInput.className = "";
+        return true;
+      }
+    }
+
+    function priceCheck() {
+    let priceInput = document.getElementById("price");
+    let price = parseFloat(priceInput.value);
+
+    if(isNaN(price)){
+        priceInput.className = "border-red";
+        return false;
+      } else {
+        priceInput.className = "";
+        return true;
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>
