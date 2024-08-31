@@ -1,0 +1,30 @@
+/* 테두리 설정하기! */
+#container {
+  width: 850px;
+  border: 1px solid black;
+  padding: 20px 40px;
+  margin: 0 auto;
+  /* 1번째 값은 위 아래 마진 */
+  /* 2번째 값은 왼쪽, 오른쪽의 마진 auto로 설정하면 해당 요소를 브라우저 가운데에 배치하도록 마진을 자동으로 계산해줌 */
+}
+
+/* ul태그를 사용해서 지연쌤 예제에서 이름과 연락처가 오른쪽으로 밀린것임 */
+/* 나는 바보같이 클래스 정의하고 margin-left로 밀었음.. */
+
+ul {
+  list-style-type: none;
+}
+/* list-style-type속성에 none값을 주면 목록의 머리 기호를 주지 않는다는 뜻(기호 없애기) */
+
+li {
+  line-height: 30px;
+}
+/* line-height : li 항목간의 세로 길이를 설정 */
+
+/* 라벨의 크기 설정하기! */
+/* label은 인라인 요소라서 크기를 변경 할 수가 없음 */
+/* display: inline-block으로 바꾸면 인라인 블록요소로 변해서 블록요소러첨 크기 변경 가능~ */
+.fixed-label{
+  display: inline-block;
+  width: 80px;
+}
