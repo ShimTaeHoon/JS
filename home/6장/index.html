@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container">
+    <h1>프런트엔드 개발자 지원서</h1>
+    <p>
+      HTML, CSS, JavaScript에 대한 기술적 이해와 경험이 있는 분을 찾습니다람쥐!
+    </p>
+    <hr>
+
+    <form>
+      <h4>개인정보</h4>
+        <li>
+          <!-- label태그를 사용하는이유: -->
+          <!-- label태그를 사용하게되면 input박스를 정확히 타겟해서 클릭해야 커서가 생기는데 -->
+          <!-- label태그로 묶게 되면 아래에서 [이름]부분만 클릭해도 label에 묶여있어서 -->
+          <!-- 사용자의 접근성 향상을 일으킬 수 있음 -->
+          <label class="fixed-label" for="sname">이름</label>
+          <input type="text" id="sname"/>
+          <!-- label과 input을 나누는 것은 [명시적 작성 방식]이며 -->
+          <!-- for(sname) <-> id(sname) 속성을 이용해서 연결해주는 방식임-->
+        </li>
+        <Li>
+          <label class="fixed-label" for="snumber">연락처</label>
+          <input type="tel" id="snumber">
+        </Li>
+        <h4>지원 분야</h4>
+          <li>
+            <!-- value의 an은 실제로 서버로 전송 될 값? 이라고 함 -->
+            <!-- 사용자가 선택한 값 또는 입력한 값을 서버로 전송할 때 사용됨.. -->
+            <label><input type="radio" name="field" value="an">웹 퍼블리싱</label>
+            <!-- 위 방식은 label태그의 [암시적 작성방식] -->
+            <!-- 암시적 작성 방식은 코드가 더 직관적이고 간결하며 -->
+            <!-- 자동으로 label과 입력요소를 연결해줌(for를 명시해주지 않아도 됨) -->
+            <!-- input타입이 input이아니라 radio버튼이라 간결함을 위해 암시적을 사용한것으로 예상.. -->
+            <!-- 혹은 label의 class를 명시해주지 않아도 되서? -->
+          </li>
+          <li>
+            <label><input type="radio" name="field" value="pd">웹 애플리케이션 개발</label>
+          </li>
+          <li>
+            <label><input type="radio" name="field" value="eng">개발 환경 개선</label>
+          </li>
+          <!-- textarea에서 label을 쓴 이유는 레이아웃을 그룹화하고 구조화하며 -->
+          <!-- 사용자에게 관련된 콘텐츠를 명확하게 제공하고 전체적인 시각적 그룹화와 접근성 향상을 위해 사용된 것으로 보임 -->
+          <label>
+            <h4>지원동기</h4>
+            <textarea id="motive" cols="60" rows="5"></textarea>
+            <div id="charCount" style="text-align: right; font-size: 0.9em;">0/30글자</div>
+          </label>
+          <div>
+            <!-- submit: 폼 양식을 서버에 전송 -->
+            <input type="submit" value="접수하기">
+            <!-- reset: 폼 초기화 시키기 -->
+            <input type="reset" value="다시 쓰기">
+          </div>
+    </form>
+  </div>
+</body>
+</html>
