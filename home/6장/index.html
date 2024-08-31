@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./style.css">
+  <!-- defer : 스크립트가 비동기적으로 로드되며, 
+  문서 파싱이 완료된 후에 실행됨.. 스크립트 실행 순서가 중요할 때 유용 -->
+  <script src="./script.js" defer></script>
 
 </head>
 
@@ -34,7 +37,9 @@
       <ul>
         <Li>
           <label class="fixed-label" for="snumber">연락처</label>
-          <input type="tel" id="snumber">
+          <!-- oninput이벤트는 사용자가 입력을 하는동안 계속 발생 -->
+          <!-- 사용자가 키를 누르거나 텍스트를 붙여넣는 등 모든 입력작업에 즉시 반응 -->
+          <input type="tel" id="snumber" oninput="checkNumberInput(this)">
         </Li>
       </ul>
       <h4>지원 분야</h4>
