@@ -39,6 +39,8 @@
           <label class="fixed-label" for="snumber">연락처</label>
           <!-- oninput이벤트는 사용자가 입력을 하는동안 계속 발생 -->
           <!-- 사용자가 키를 누르거나 텍스트를 붙여넣는 등 모든 입력작업에 즉시 반응 -->
+          <!-- (this)를 해준 이유는 <input>, <textarea>, <select>와 같은 html태그들을 사용할 때 -->
+          <!-- 현재 입력 필드 객체를 가리키기 위해 -->
           <input type="tel" id="snumber" oninput="checkNumberInput(this)">
         </Li>
       </ul>
@@ -65,12 +67,14 @@
       <!-- 사용자에게 관련된 콘텐츠를 명확하게 제공하고 전체적인 시각적 그룹화와 접근성 향상을 위해 사용된 것으로 보임 -->
       <label>
         <h4>지원동기</h4>
-        <textarea id="motive" cols="70" rows="5"></textarea>
+        <!-- (this)를 붙여주면 <textarea>에 사용자가 입력할 때 마다 update함수가 호출됨 -->
+        <!-- 여기서 현재 this는 textarea 요소를 가리킴 -->
+        <textarea id="motive" cols="70" rows="5" oninput="updateCharacterCount(this)"></textarea>
         <div id="charCount" style="text-align: right; font-size: 0.9em;">0/30글자</div>
       </label>
       <div>
         <!-- submit: 폼 양식을 서버에 전송 -->
-        <input type="submit" value="접수하기"/>
+        <input type="submit" value="접수하기" onclick="validdateForm()"/>
         <!-- reset: 폼 초기화 시키기 -->
         <input type="reset" value="다시 쓰기"/>
       </div>
