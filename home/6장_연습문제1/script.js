@@ -67,7 +67,7 @@ function validdateForm() {
   }
 
   // isFieldSelected가 !연산자를 통해 true가 되는데
-  // 왜 isVliad 값을 false로 초기화 하는것인지?..? 이해불가..
+  // ★★★왜 isVliad 값을 false로 초기화 하는것인지?..? 이해불가..★★★
   if(!isFieldSelected) {
     isValid = false;
     errorMessage += "지원 분야를 선택해주세요 \n";
