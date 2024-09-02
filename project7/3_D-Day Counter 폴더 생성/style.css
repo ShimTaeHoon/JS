@@ -1,0 +1,31 @@
+/* 
+display: flex; body를 flex 컨테이너로 설정
+flex-direction: column; 아이템들을 수직 방향으로 정렬
+align-items: center; 수평 축에서 가운데로 정렬
+*/
+body {
+  display: flex;
+  flex-direction: column; /* 수직 */
+  align-items: center; /* 교차 축 (column(x축)이기에 교차해서 y축), 교차축의 중앙에  */
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+button {
+  margin-left: 0.5rem;
+}
+
+/* div라서 가로영역 다 차지하기에 flex해줌 */
+#dday-div {
+  display:flex;
+  flex-direction: row; /* 가로 */
+  font-size: 1.5rem;
+}
+
+/* 자식 선택자 사용 */
+/* id가 dday-div인 요소의 자식 div 태그를 모두 선택 */
+#dday-div > div {
+  margin-left: 1rem;
+}
