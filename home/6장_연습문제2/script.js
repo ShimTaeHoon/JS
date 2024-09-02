@@ -42,7 +42,8 @@ function validdateAndAddItem() {
     errorMessage += "유효한 가격을 입력해주세요. \n";
   }
 
-  if (!isValid){
+  // if (!isValid)
+  if (isValid == false){
     alert(errorMessage);
     return;
     // js에서 return문은 함수의 실행을 즉시 종료하는 것임
@@ -99,6 +100,19 @@ function addItemToCart(name, quantity, price){
     ${quantity}</span>개 <span class="itemPrice">${(quantity * price).toFixed(2)}
     </span>원 <button onclick="removeItem(this)">제거</button></li>`;
                                         //this는 클릭된 버튼 자신
+
+    // ★★★
+    // 브라우저에서 개발자도구 열어서 콘솔창에 실시간으로 확인해서 코드 만들기 ▼▼▼
+    // f12에서 new Item에 걸려 있는 상태에서 콘솔창 !!!
+    // ★★★
+
+    // cartList.insertAdjacentHTML("beforeend", 
+    //          <key> = <value>
+    // `<li data-name = "${name}"> - <span class="itemQuantity">
+    //   ${quantity}</span>개 <span>${quantity * price}</span>원  
+    //   <button onclick="removeItem(this)">제거</button></li>`);
+    // --------------> new Item변수를 하나 선언해서 초기화 시켜주기!!!
+    // ★★★
     
     // HTML문서에서 id가 cartList인 요소를 가져오기
     // insertAdjacentHTML을 통해 지정된 위치에 HTML문자열 삽입
