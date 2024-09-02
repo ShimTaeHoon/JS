@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  message:
+  <div id="msg"></div>
+
+  person:
+  <div>
+    <span id="name"></span>
+    <span id="age"></span>
+  </div>
+
+  <script>
+    // div
+    const msg = document.getElementById("msg");
+    // span
+    const name = document.getElementById("name");
+    // span
+    const age = document.getElementById("age");
+
+    if (typeof Storage !== "undefined") {
+      // 스토리지에 저장된 데이터를 키로 꺼내기
+      // 반환값이 있는 경우에는 앞쪽에 변수를 선언하고 받아줘야함
+      let message = localStorage.getItem("message");
+      msg.textContent = message;
+
+      // 꺼낸 데이터를 객체로 변환하기
+      let person = localStorage.getItem("person");
+      // JSON형태의 문자열이 자바스크립트의 객체로 변환이 되어 프로퍼티를 각가 꺼낼수 있음(age:"13" / name:"또치")
+      // JSON.parse(person).name        <<- 하면 '또치' 나옴
+      let personObj = JSON.parse(person);
+      
+      name.textContent = personObj.name;
+      age.textContent = personObj.age;
+
+    }
+  </script>
+
+</body>
+
+</html>
