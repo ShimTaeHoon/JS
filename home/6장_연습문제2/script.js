@@ -143,6 +143,7 @@ function updateTotal() {
     totalPrice += parseFloat(priceSpan.textContent);
   });
 
+  // HTML문서에 totalQuantity(총 수량:) 부분에 전체 수량이 계산된(totalQuantity)를 삽입
   document.getElementById("totalQuantity").textContent = totalQuantity;
   document.getElementById("totalPrice").textContent = totalPrice.toFixed(2);
 }
