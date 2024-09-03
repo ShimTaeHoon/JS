@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 브라우저에서 스토리지를 사용할 수 있는지 체크하기!
+    if (typeof Storage !== "undefined"){
+      // 로컬 스토리지 객체를 사용해, 로컬 스토리지 title키에 ""을 저장한다
+      // localStorage.setItem("key", "value");
+      localStorage.setItem("hi", "안녕~");
+
+      const users2 = [
+        { id: 1, name: "짱구" },
+        { id: 2, name: "철수" },
+      ];
+
+      // 로컬스토리지에 users키에 users 배열을 저장하기!
+      // 값은 문자열로 변환 후 저장한다(JSON.stringify(users));
+      // 첫번째 인자(users123)가 key값이 되고, 위에서 선언한 users2는 단지 스토리지에 담열 변수명임
+      localStorage.setItem("users123", JSON.stringify(users2));
+
+      // 개발자 도구 열기 -> Application -> LocalStorage -> 데이터 저장된 것 확인하기
+    }
+  </script>
+</body>
+</html>
