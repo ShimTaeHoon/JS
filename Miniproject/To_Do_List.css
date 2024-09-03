@@ -1,0 +1,25 @@
+button {
+  border-radius: 3px;
+  border: 0px solid;
+  background-color:  rgb(214, 214, 214);
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+#add-list-input {
+  height: 22px;
+  border: 1px solid rgb(214, 214, 214);
+  border-radius: 3px;
+}
+
+#loadList {
+  height: 22px;
+  border: 1px solid rgb(214, 214, 214);
+  border-radius: 3px;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+}
