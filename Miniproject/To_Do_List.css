@@ -23,3 +23,8 @@ button {
   display: flex;
   flex-direction: column;
 }
+
+#list-container button {
+  font-size: 10px;
+  margin-left: 7px;
+}

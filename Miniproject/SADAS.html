@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML += Example</title>
+</head>
+<body>
+    <div id="output">첫 번째 메시지<br> 두 번째 메시지<br></div>
+    <script>
+        function appendMessages() {
+            const outputDiv = document.getElementById('output');
+            
+            // 현재 내용에 추가하는 방식
+            outputDiv.innerHTML += "첫 번째 메시지<br>";
+            console.log(outputDiv.innerHTML);
+            
+            outputDiv.innerHTML += "두 번째 메시지<br>";
+            console.log(outputDiv.innerHTML);
+            
+            outputDiv.innerHTML += "세 번째 메시지<br>";
+            console.log(outputDiv.innerHTML);
+        }
+        
+        appendMessages();
+    </script>
+</body>
+</html>
