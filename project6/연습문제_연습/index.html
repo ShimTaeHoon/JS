@@ -11,12 +11,11 @@
 
 <body>
   <div id="flex-container">
-    <div id="signup-form" class="container">
+    <form id="signup-form" class="container">
       <h1>회원가입</h1>
       <p>회원가입을 위해 아래의 정보를 입력해주세요.</p>
       <hr>
 
-      <form>
         <h4>회원기본정보</h4>
         <ul>
           <li>
@@ -44,12 +43,12 @@
             <input type="text" id="sn1" name="sn1">
             -
             <input type="text" id="sn2" name="sn2">
-            <input type="button" value="확인">
+            <input type="button" value="확인" onclick="genderChcek(this.form)">
           </li>
           <li>
             <label class="fixed-label">성별</label>
-            <label><input type="radio" id="male" nane="gender" value="m">남자</label>
-            <label><input type="radio" id="female" nane="gender" value="f">여자</label>
+            <label><input type="radio" id="male" name="gender" value="m">남자</label>
+            <label><input type="radio" id="female" name="gender" value="f">여자</label>
           </li>
         </ul>
 
@@ -68,13 +67,13 @@
         </div>
 
       </form>
-    </div>
+    </form>
     <div id="info-table" class="container">
-      <input type="text" id="searchId" placeholder="찾을 아이디를 입력하세요">
+      <input type="text" id="searchId" placeholder="찾을 아이디를 입력하세요" onkeyup="searchTable()">
       <br>
       <br>
       <input type="text" id="searchName" placeholder="찾을 이름을 입력하세요.">
-      <input type="button" value="찾기">
+      <input type="button" value="찾기" onclick="searchName()">
       <input type="button" value="초기화">
       <br>
       <br>
@@ -92,7 +91,7 @@
             <th>관심분야</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="info-tbody">
           <!-- 동적으로 데이터 추가 -->
         </tbody>
       </table>
