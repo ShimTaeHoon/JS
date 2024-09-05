@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="./style.css">
   <script src="./script.js" defer></script>
 </head>
+
 <body>
   <div id="flex-container">
     <div id="signup-form" class="container">
@@ -46,8 +48,8 @@
           </li>
           <li>
             <label class="fixed-label">성별</label>
-            <label><input type="radio" id="male" nane="gender" value="m"></label>
-            <label><input type="radio" id="female" nane="gender" value="f"></label>
+            <label><input type="radio" id="male" nane="gender" value="m">남자</label>
+            <label><input type="radio" id="female" nane="gender" value="f">여자</label>
           </li>
         </ul>
 
@@ -61,7 +63,7 @@
         </ul>
 
         <div>
-          <input type="button" value="회원가입">
+          <input type="button" value="회원가입" onclick="validate(this.form);">
           <input type="reset" value="다시 쓰기">
         </div>
 

@@ -30,7 +30,7 @@ function validate(f) {
     // 주민등록번호 체크
     if (!regPid1.exec(f.sn1.value)) {
         alert("주민등록번호 앞자리는 숫자 6자리");
-        return;
+        return; 
     } else if (!regPid2.exec(f.sn2.value)) {
         alert("주민등록번호 뒷자리는 숫자 7자리");
         return;
